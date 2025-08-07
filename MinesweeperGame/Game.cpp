@@ -60,7 +60,7 @@ void Game::play() {
         }
         else if (input == "load") {
             board.loadFromFile("save.txt");
-            std::cout << "\033[95mGame loaded from save.txt\033[0m\n"; // Jasny fioletowy kolor
+            std::cout << "\033[95mGame loaded from save.txt\033[0m\n"; 
         }
         else if (input == "exit") {
             std::cout << "Exiting to main menu.\n";
@@ -106,13 +106,11 @@ void Game::play() {
     }
 }
 
-// Resetowanie rozgrywki
 void Game::reset(int rows, int cols, int mines) {
     board = Board(rows, cols, mines);
     isGameOver = false;
 }
 
-// Sprawdzenie pokrycia flag z mianami
 bool Game::checkWinCondition() const {
     return board.getFlagCount() == 0 && board.allMinesFlagged();
 }
